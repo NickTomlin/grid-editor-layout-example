@@ -1,0 +1,128 @@
+/* util */
+:root {
+  --header-height: 70px;
+}
+
+.collapsed {
+  width: 0;
+  min-width: 0!important;
+  overflow: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+/* actual styles */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: #796e6e;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-left: 1rem;
+  justify-content: flex-start;
+}
+
+.main {
+  flex: 1;
+  display: grid;
+  overflow: auto;
+  gap: 0 0;
+  grid-auto-flow: row;
+  grid-template-columns: auto minmax(400px, 2fr) auto;
+  grid-template-areas:
+    'Sidebar Controls Preview'
+    'Sidebar EditorContainer Preview';
+}
+
+.controls {
+  display: flex;
+  grid-area: Controls;
+  justify-items: center;
+  justify-content: space-between;
+  background-color: #6443d7;
+  max-height: clamp(41px, 5vh, 60px);
+}
+
+.tabs {
+  display: flex;
+}
+
+.sidebar {
+  grid-area: Sidebar;
+  background-color: aqua;
+  min-width: 175px;
+}
+
+.preview {
+  grid-area: Preview;
+  resize: horizontal;
+  overflow: auto;
+  background: gray;
+  justify-content: initial;
+}
+
+
+.editorContainer {
+  grid-area: EditorContainer;
+  overflow: auto;
+  flex-direction: column;
+  display: flex;
+  background-color: #ffffff;
+}
+
+.editor {
+  flex: 1;
+  overflow: auto;
+}
+
+.infoPane {
+  flex: none;
+  /*
+  it is difficult to get away with non fixed height here
+   */
+  max-height: 20vh;
+  background: lightskyblue;
+  overflow: auto;
+}
+
+#infoPane-toggle::before {
+  content: '▼';
+  height: 10px;
+  width: 15px;
+  font-size: 10px;
+}
+
+.infoPane.small #infoPane-toggle::before {
+  content: '▲';
+}
+
+
+.infoPane-controls {
+  gap: 1rem;
+  display: flex;
+  align-content: flex-start;
+}
+
+#infoPane-toggle {
+  height: 20px;
+}
+
+.infoPane.small {
+  /*
+  it is difficult to get away with non fixed height here
+   */
+  height: 50px;
+}
