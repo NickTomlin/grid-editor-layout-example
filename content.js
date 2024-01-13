@@ -1,7 +1,7 @@
 export const content = `
 Current issues:
 
-  - At smaller heights (below ~910px) the tabs get hidden if we scroll too far
+  - [x] At smaller heights (below ~910px) the tabs get hidden if we scroll too far
      - I think the issue here is the height on the .editorContaner
      - Ideally we could let it just take up the remaining space...
       
